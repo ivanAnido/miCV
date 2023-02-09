@@ -1,0 +1,410 @@
+/*reset PRO*/
+
+/* Costum properties */
+
+:root{
+    --color-primario:#181818;
+    --color-secundario:#f0f0f0;
+    
+    /* Tipografias */
+    --tipo-principal: "Playfair Display", sans-serif;
+    --tipo-secundario:'Inter', sans-serif;
+}
+
+/* modo oscuro */
+@media (prefers-color-scheme: dark) {
+    :root{
+        --color-primario:#f0f0f0;
+        --color-secundario:#181818;
+    }
+}
+
+/* Reset margin y padding de todas las etiquetas */
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+/* Problema de imagenes*/
+img , picture , video , iframe ,figure{
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    /*opcional*/ object-fit: cover;
+    /*opcional*/ object-position: center center;
+}
+
+/* Reset enlaces para funcionar como cajas*/
+a{
+    display: block;
+}
+/* con excepcion los que se encuentren dentro de un parrafo */
+p a {
+    display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+    list-style-type: none;
+}
+
+/* Ancors suaves */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Desactivar estilos por defecto de etiquetas principales de texto */
+h1 , h2 , h3 , h4 , h5 , h6 , p , span , a , strong , blockquote , i , b , u , em{
+    font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+} 
+
+/* Problemas con pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none;
+}
+
+/* Configurar texto seleccionado */
+::selection {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+/* Nivelar problemas de tipografias y formularios */
+form , input , textarea , select , button , label{
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    display: block;
+    color: inherit;
+}
+
+/* Reset tablas */
+table , tr , td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Evitar problemas con SVG */
+svg {
+    width: 100%;
+    fill: currentColor;
+}
+
+/* Configuramos la tipografia para toda la web */
+body{
+    min-height: 100vh;
+    font-size: 100%;
+    font-family: var(--tipo-principal);
+    color: var(--color-secundario);
+    background-color: var(--color-primario);
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* Fin de reset */
+
+
+
+.circulos{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* background-color: darkslategrey; */
+    z-index: 1;
+    filter: blur(40px);
+    animation:circulo1 50s linear infinite both;
+}
+.circulos .circulo{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    animation:circulo1 100s linear infinite both;
+    
+}
+
+
+.circulos .circulo1{
+    top: 0%;
+    left: 0%;
+}
+.circulos .circulo1 .path{
+    fill: seagreen;
+}
+
+.circulos .circulo2{
+    top: 0%;
+    right: 0%;
+}
+.circulos .circulo2 .path{
+    fill: rgb(61, 7, 105);
+}
+
+.circulos .circulo3{
+    bottom: 0%;
+    left: 0%;
+}
+.circulos .circulo3 .path{
+    fill: rgb(26, 43, 54);
+}
+
+.circulos .circulo4{
+    bottom: 0%;
+    right: 0%;
+}
+.circulos .circulo4 .path{
+    fill: rgb(133, 120, 3);
+}
+
+
+.header{
+   padding: 30px;
+} 
+.nav{
+    position: fixed;
+    margin-left: 60px;
+    background-color: #181818;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    z-index: 99;
+    display: none;
+}
+.nav a{
+    display: block;
+    color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+.header .nav-bar{
+    position: fixed;
+    color: whitesmoke;
+    background-color: #181818;
+    width: 3em;
+    height: 3em;
+    padding-top: 0.5em;
+    border-radius: 50%;
+    line-height: 50%;
+    cursor: pointer;
+    transition: .3s;
+    z-index: 100;
+}
+
+.nav-bar:hover{
+    box-shadow: 0 0 35px;
+}
+
+.main{
+    margin: 0 0 1em;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.seccion{
+    width: 100%;
+    min-height: 80vh;
+    padding: 2em;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid white;
+}
+.seccion .info{
+    font-size: 1.2em;
+    animation: aparecer1 2s ease 1 both;
+}
+
+.seccion .ul{
+    margin: 2em 0 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+.seccion .ul .li{
+    /* background: chartreuse; */
+    margin: 0 1em;
+}
+.seccion .ul .a{
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 50%;
+    padding: 1em 1em 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: var(--tipo-secundario);
+    transition: all .5s ease;
+    animation: aparecer1 2s ease 1 backwards;
+}
+.seccion .ul .a:hover{
+    border-color: whitesmoke;
+}
+
+.seccion .h2{
+    font-family: var(--tipo-principal);
+    font-size: 5em;
+    font-weight: 600;
+}
+.seccion .h3{
+    font-family: var(--tipo-principal);
+    font-size: 4em;
+    
+}
+
+.seccion .p{}
+.seccion .grid{
+    width: 90%;
+    max-width: 40em;
+    
+    margin: 1em 0;
+
+    display: grid;
+    grid-template-columns: repeat( auto-fit , minmax(15rem , 1fr));
+    gap: 1em;
+}
+.seccion .article{
+    width: 100%;
+    min-height: 20vh;
+    background: rgb(0, 0, 0);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+    border-radius: 1em;
+}
+.seccion .a{}
+.seccion .figure{
+    width: 100%;
+    
+}
+.seccion .img{
+    width: 100%;
+    background: black;
+}
+.seccion .h4{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    backdrop-filter: blur(1rem);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 1.8em;
+    font-style: italic;
+
+    opacity: 0;
+    transform: translateZ(1) scale(1.2);
+    transition: all .5s ease;
+}
+.seccion .article:hover .h4{
+    opacity: 1;
+    transform: translateZ(1) scale(1);
+}
+
+.works{
+    
+    color:var(--color-secundario);
+}
+.works .h2{
+    margin: 0 0 1rem;
+    color: inherit;
+}
+
+.about .h2{
+    margin: 0 0 2rem;
+}
+.about .p{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    max-width: 40rem;
+    /* background: lime; */
+    margin: 0 0 2rem;
+    text-align: left;
+    font-size: 1.5em ;
+    font-family: var(--tipo-secundario);
+
+}
+.about .rrss{
+    width: 100%;
+    /* background: lightgreen; */
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.about .li{
+    /* background: orange; */
+    margin: 0 1em;
+}
+.about .a{}
+
+.about .contacto{
+    width: 2em;
+    height: 2em;
+}
+
+.about .svg{
+    width: 3em;
+    height: 3em;
+    /* background: red; */
+}
+
+.footer{
+    /* background-color: lightpink; */
+    padding: 2em 0;
+    text-align: center;
+    color: var(--color-secundario);
+
+}
+.footer .span{}
+
+
+
+
+@keyframes circulo1{
+    from{
+        transform:rotate(0deg) scale(3);
+    }
+    to{
+        transform: rotate(360deg) scale(3);
+    }
+}
+
+@keyframes aparecer1{
+    from{
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
